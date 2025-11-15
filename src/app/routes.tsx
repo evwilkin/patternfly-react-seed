@@ -1,6 +1,10 @@
 import * as React from 'react';
 import { Route, Routes } from 'react-router-dom';
+import { Automations } from '@app/Automations/Automations';
 import { Dashboard } from '@app/Dashboard/Dashboard';
+import { Builder } from '@app/Builder/Builder';
+import { Approvals } from '@app/Approvals/Approvals';
+import { Configuration } from '@app/Configuration/Configuration';
 import { Support } from '@app/Support/Support';
 import { GeneralSettings } from '@app/Settings/General/GeneralSettings';
 import { ProfileSettings } from '@app/Settings/Profile/ProfileSettings';
@@ -13,6 +17,7 @@ export interface IAppRoute {
   path: string;
   title: string;
   routes?: undefined;
+  isDisabled?: boolean;
 }
 
 export interface IAppRouteGroup {
@@ -28,14 +33,45 @@ const routes: AppRouteConfig[] = [
     exact: true,
     label: 'Dashboard',
     path: '/',
-    title: 'PatternFly Seed | Main Dashboard',
+    title: 'Dashboard',
+    isDisabled: true,
+  },
+  {
+    element: <Builder />,
+    exact: true,
+    label: 'Builder',
+    path: '/builder',
+    title: 'Builder',
+    isDisabled: true,
+  },
+  {
+    element: <Automations />,
+    exact: true,
+    label: 'Automations',
+    path: '/automations',
+    title: 'Automations',
+  },
+  {
+    element: <Approvals />,
+    exact: true,
+    label: 'Approvals',
+    path: '/approvals',
+    title: 'Approvals',
+    isDisabled: true,
+  },
+  {
+    element: <Configuration />,
+    exact: true,
+    label: 'Configuration',
+    path: '/configuration',
+    title: 'Configuration',
   },
   {
     element: <Support />,
     exact: true,
     label: 'Support',
     path: '/support',
-    title: 'PatternFly Seed | Support Page',
+    title: 'Support - Glossary',
   },
   {
     label: 'Settings',
@@ -45,14 +81,16 @@ const routes: AppRouteConfig[] = [
         exact: true,
         label: 'General',
         path: '/settings/general',
-        title: 'PatternFly Seed | General Settings',
+        title: 'General Settings',
+        isDisabled: true,
       },
       {
         element: <ProfileSettings />,
         exact: true,
         label: 'Profile',
         path: '/settings/profile',
-        title: 'PatternFly Seed | Profile Settings',
+        title: 'Profile Settings',
+        isDisabled: true,
       },
     ],
   },
@@ -72,4 +110,4 @@ const AppRoutes = (): React.ReactElement => (
   </Routes>
 );
 
-export { AppRoutes, routes };
+export { AppRoutes, routes, flattenedRoutes };

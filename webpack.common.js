@@ -41,15 +41,9 @@ export default (env) => {
           test: /\.svg$/,
           type: 'asset/inline',
           include: (input) => input.indexOf('background-filter.svg') > 1,
-          use: [
-            {
-              options: {
-                limit: 5000,
-                outputPath: 'svgs',
-                name: '[name].[ext]',
-              },
-            },
-          ],
+          generator: {
+            filename: 'svgs/[name][ext]',
+          },
         },
         {
           test: /\.svg$/,
@@ -84,16 +78,15 @@ export default (env) => {
             path.resolve('./node_modules/@patternfly/react-table/node_modules/@patternfly/react-styles/css/assets/images'),
             path.resolve('./node_modules/@patternfly/react-inline-edit-extension/node_modules/@patternfly/react-styles/css/assets/images')
           ],
-          type: 'asset/inline',
-          use: [
-            {
-              options: {
-                limit: 5000,
-                outputPath: 'images',
-                name: '[name].[ext]',
-              },
+          type: 'asset',
+          parser: {
+            dataUrlCondition: {
+              maxSize: 5000,
             },
-          ],
+          },
+          generator: {
+            filename: 'images/[name][ext]',
+          },
         },
       ],
     },

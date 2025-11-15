@@ -52,7 +52,7 @@ export interface ISupportProps {
   sampleProp?: string;
 }
 
-const Support: React.FunctionComponent<ISupportProps> = () => {
+const Configuration: React.FunctionComponent<ISupportProps> = () => {
   useDocumentTitle('Support - Glossary');
   const [searchValue, setSearchValue] = React.useState('');
 
@@ -113,4 +113,4 @@ const Support: React.FunctionComponent<ISupportProps> = () => {
   );
 };
 
-export { Support };
+export { Configuration };

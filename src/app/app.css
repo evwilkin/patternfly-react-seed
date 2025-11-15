@@ -9,3 +9,53 @@ body,
   --pf-v6-c-content--blockquote--BorderLeftColor: var(--pf-t--global--color--nonstatus--purple--default); /* changes all <blockquote> left border color to the semantic token for non-status (purple) */
   --pf-v6-c-content--hr--BackgroundColor: var(--pf-t--global--color--nonstatus--yellow--default); /* changes a <hr> color to the semantic token for non-status (yellow) */
 }
+
+:where(body) {
+  --pf-t--global--font--size--body--default: 1rem;
+}
+
+.pf-v6-c-table {
+  --pf-v6-c-table__thead--cell--FontSize: var(--pf-t--global--font--size--body--default);
+}
+
+/* .pf-v6-c-table a,
+.pf-v6-c-table a:hover,
+.pf-v6-c-table a:focus {
+  text-decoration-line: none;
+} */
+
+.pf-v6-c-compass__panel {
+  --pf-v6-c-compass__panel--BackdropFilter: blur(40px);
+  --pf-v6-c-compass__panel--BackgroundColor: color-mix(in oklab,#000 20%,transparent);
+}
+
+.pf-v6-c-table__thead {
+  --pf-v6-c-table--BackgroundColor: oklab(0 0 0 / 0.2);
+  backdrop-filter: blur(40px);
+  background: var(--pf-v6-c-table--BackgroundColor) linear-gradient(to top, oklab(0.702 0.0730911 -0.16777 / 0.1) 0%, oklab(0.714 0.117894 -0.165257 / 0.1) 50%, oklab(0.746 -0.0970448 -0.12721 / 0.1) 100%) !important;
+}
+
+.pf-v6-c-table__tr {
+  background-color: oklab(0.999994 0.0000455678 0.0000200868 / 0.05);
+}
+
+.bottom-sticky-row {
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
+  border: none;
+  backdrop-filter: blur(40px);
+  background-color: oklab(0 0 0 / 0.2);
+  background-image: linear-gradient(to top, oklab(0.702 0.0730911 -0.16777 / 0.1) 0%, oklab(0.714 0.117894 -0.165257 / 0.1) 50%, oklab(0.746 -0.0970448 -0.12721 / 0.1) 100%);
+}
+
+.bottom-sticky-row td {
+  background-color: oklab(0.999994 0.0000455678 0.0000200868 / 0.05);
+}
+
+.ai-shadow {
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  box-shadow: -2px -2px 4px oklch(43.2% 0.232 292.759), 2px 2px 4px oklch(50% 0.134 242.749), -2px 2px 4px oklch(45.9% 0.187 3.815), 2px -2px 4px oklch(45.9% 0.187 3.815);
+}

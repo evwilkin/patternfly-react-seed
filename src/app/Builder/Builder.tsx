@@ -34,7 +34,7 @@ interface Automation {
   status: string;
 }
 
-const Dashboard: React.FunctionComponent = () => {
+const Builder: React.FunctionComponent = () => {
   const [searchValue, setSearchValue] = React.useState('');
   const [isTypeSelectOpen, setIsTypeSelectOpen] = React.useState(false);
   const [isStatusSelectOpen, setIsStatusSelectOpen] = React.useState(false);
@@ -130,4 +130,4 @@ const Dashboard: React.FunctionComponent = () => {
   );
 };
 
-export { Dashboard };
+export { Builder };
