@@ -1,22 +1,11 @@
 import * as React from 'react';
 import {
-  Button,
   CompassContent,
   CompassMainHeader,
   CompassPanel,
-  Flex,
-  FlexItem,
-  MenuToggle,
-  MenuToggleElement,
   SearchInput,
-  Select,
-  SelectList,
-  SelectOption,
   Switch,
   Title,
-  Toolbar,
-  ToolbarContent,
-  ToolbarItem,
 } from '@patternfly/react-core';
 import {
   ActionsColumn,
@@ -27,7 +16,6 @@ import {
   Tbody,
   Td,
 } from '@patternfly/react-table';
-import FilterIcon from '@patternfly/react-icons/dist/esm/icons/filter-icon';
 import PlayIcon from '@patternfly/react-icons/dist/esm/icons/play-icon';
 import ListIcon from '@patternfly/react-icons/dist/esm/icons/list-icon';
 import { Link } from 'react-router-dom';
@@ -42,10 +30,6 @@ interface Automation {
 
 const Automations: React.FunctionComponent = () => {
   const [searchValue, setSearchValue] = React.useState('');
-  const [isTypeSelectOpen, setIsTypeSelectOpen] = React.useState(false);
-  const [isStatusSelectOpen, setIsStatusSelectOpen] = React.useState(false);
-  const [selectedType, setSelectedType] = React.useState<string>('Type');
-  const [selectedStatus, setSelectedStatus] = React.useState<string>('Status');
 
   // Sample data matching the screenshot structure
   const automations: Automation[] = [
@@ -88,19 +72,9 @@ const Automations: React.FunctionComponent = () => {
     disabled: 'State',
   };
 
-  const onTypeSelect = (_event: React.MouseEvent<Element, MouseEvent> | undefined, value: string | number | undefined) => {
-    setSelectedType(value as string);
-    setIsTypeSelectOpen(false);
-  };
-
-  const onStatusSelect = (_event: React.MouseEvent<Element, MouseEvent> | undefined, value: string | number | undefined) => {
-    setSelectedStatus(value as string);
-    setIsStatusSelectOpen(false);
-  };
-
   return (
     <>
-      <CompassMainHeader title={<Title headingLevel="h1" size="xl">Automations</Title>} toolbar={<SearchInput
+      <CompassMainHeader title={<Title headingLevel="h1">Automations</Title>} toolbar={<SearchInput
             placeholder="Search automations"
             value={searchValue}
             onChange={(_event, value) => setSearchValue(value)}

@@ -4,9 +4,11 @@ import {
   CompassPanel,
   SearchInput,
   Title,
-  Content,
-  Stack,
-  StackItem,
+  CompassMainHeader,
+  DescriptionList,
+  DescriptionListGroup,
+  DescriptionListTerm,
+  DescriptionListDescription,
 } from '@patternfly/react-core';
 import { useDocumentTitle } from '@app/utils/useDocumentTitle';
 
@@ -77,36 +79,22 @@ const Support: React.FunctionComponent<ISupportProps> = () => {
 
   return (
     <>
+      <CompassMainHeader title={<Title headingLevel="h1">Glossary</Title>} toolbar={<SearchInput
+        placeholder="Search"
+        value={searchValue}
+        onChange={(_event, value) => setSearchValue(value)}
+        onClear={() => setSearchValue('')}
+      />} />
       <CompassContent>
         <CompassPanel>
-          <Stack hasGutter>
-            <StackItem>
-              <Title headingLevel="h1" size="2xl">
-                Glossary
-              </Title>
-            </StackItem>
-            <StackItem>
-              <SearchInput
-                placeholder="Search..."
-                value={searchValue}
-                onChange={onSearchChange}
-                onClear={onClear}
-                aria-label="Search glossary terms"
-              />
-            </StackItem>
-            <StackItem>
-              <Stack hasGutter>
-                {filteredGlossary.map((item, index) => (
-                  <StackItem key={index}>
-                    <Content>
-                      <Content component="h3">{item.term}</Content>
-                      <Content component="p">{item.description}</Content>
-                    </Content>
-                  </StackItem>
-                ))}
-              </Stack>
-            </StackItem>
-          </Stack>
+          <DescriptionList>
+            {filteredGlossary.map((item, index) => (
+              <DescriptionListGroup key={index}>
+                <DescriptionListTerm>{item.term}</DescriptionListTerm>
+                <DescriptionListDescription>{item.description}</DescriptionListDescription>
+              </DescriptionListGroup>
+            ))}
+          </DescriptionList>
         </CompassPanel>
       </CompassContent>
     </>

@@ -27,16 +27,21 @@ body,
 .pf-v6-c-compass__panel {
   --pf-v6-c-compass__panel--BackdropFilter: blur(40px);
   --pf-v6-c-compass__panel--BackgroundColor: color-mix(in oklab,#000 20%,transparent);
+  --pf-v6-c-compass__panel--BorderWidth: 2px;
+  --pf-v6-c-compass__panel--BorderColor: oklab(0.999994 0.0000455678 0.0000200868 / 0.1);
+  scrollbar-color: oklab(0.606 0.096545 -0.230606 / 0.4) transparent;
 }
 
 .pf-v6-c-table__thead {
   --pf-v6-c-table--BackgroundColor: oklab(0 0 0 / 0.2);
   backdrop-filter: blur(40px);
   background: var(--pf-v6-c-table--BackgroundColor) linear-gradient(to top, oklab(0.702 0.0730911 -0.16777 / 0.1) 0%, oklab(0.714 0.117894 -0.165257 / 0.1) 50%, oklab(0.746 -0.0970448 -0.12721 / 0.1) 100%) !important;
+  --pf-v6-c-table--BorderColor: oklab(0.811 0.0443873 -0.101739 / 0.2);
 }
 
 .pf-v6-c-table__tr {
   background-color: oklab(0.999994 0.0000455678 0.0000200868 / 0.05);
+  --pf-v6-c-table__tr--BorderBlockEndColor: oklab(0.811 0.0443873 -0.101739 / 0.2);
 }
 
 .bottom-sticky-row {
@@ -58,4 +63,14 @@ body,
   width: 24px;
   border-radius: 50%;
   box-shadow: -2px -2px 4px oklch(43.2% 0.232 292.759), 2px 2px 4px oklch(50% 0.134 242.749), -2px 2px 4px oklch(45.9% 0.187 3.815), 2px -2px 4px oklch(45.9% 0.187 3.815);
+}
+
+.empty-configuration-img {
+  max-width: 512px;
+  margin-right: --pf-v6-global--spacer--xl;
+}
+
+.integration-type-tile {
+  max-width: 220px;
+  align-items: center;
 }

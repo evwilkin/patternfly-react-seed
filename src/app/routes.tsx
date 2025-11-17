@@ -5,6 +5,7 @@ import { Dashboard } from '@app/Dashboard/Dashboard';
 import { Builder } from '@app/Builder/Builder';
 import { Approvals } from '@app/Approvals/Approvals';
 import { Configuration } from '@app/Configuration/Configuration';
+import { Configure } from '@app/Configure/Configure';
 import { Support } from '@app/Support/Support';
 import { GeneralSettings } from '@app/Settings/General/GeneralSettings';
 import { ProfileSettings } from '@app/Settings/Profile/ProfileSettings';
@@ -65,6 +66,13 @@ const routes: AppRouteConfig[] = [
     label: 'Configuration',
     path: '/configuration',
     title: 'Configuration',
+  },
+  {
+    element: <Configure />,
+    exact: true,
+    label: 'Configure',
+    path: '/configure',
+    title: 'Configure Integration',
   },
   {
     element: <Support />,
